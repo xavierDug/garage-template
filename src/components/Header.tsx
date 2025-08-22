@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowBigRight, ArrowRight } from 'lucide-react';
+import { Button } from './ui/button';
 
 export default function Header() {
     return (
@@ -27,15 +28,15 @@ export default function Header() {
                 <div id="hs-navbar-example" className="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block px-4" aria-labelledby="hs-navbar-example-collapse">
                     <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 pb-6 sm:pb-0">
                         <a className="font-semibold text-blue-400 focus:outline-hidden" href="#" aria-current="page">Home</a>
-                        <a className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">About</a>
-                        <a className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Services</a>
-                        <a className="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">
-                            <button type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-white text-black hover:bg-gray-200 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none cursor-pointer">
+                        <a className="font-medium text-gray-400 hover:text-gray-200 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">About</a>
+                        <a className="font-medium text-gray-400 hover:text-gray-200 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Services</a>
+                        <a className="font-medium text-gray-400 hover:text-gray-200 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">
+                            <Button variant="outline" className="ms-2 text-black cursor-pointer">
                                 Contact us
                                 <div className="inline-flex bg-blue-400 p-1 rounded-full">
                                     <ArrowRight className="w-4 h-4 text-white" />
                                 </div>
-                            </button>
+                            </Button>
                         </a>
                     </div>
                 </div>

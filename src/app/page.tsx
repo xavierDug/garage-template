@@ -1,21 +1,43 @@
+"use client";
+
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import { Footer7 } from '@/components/Footer';
 import HeroSection from '../components/HeroSection';
-import Card from '../components/Card';
+import { ArrowDown } from 'lucide-react';
+import { ServiceCardLinks } from '@/components/ServiceCardLinks';
+import { ServiceCardNoLinks } from '@/components/ServiceCardNoLinks';
+import CTAcontact from '@/components/CTAcontact';
+import { Testimonials } from '@/components/Testimonials';
+import { AboutUs } from '@/components/AboutUs';
 
 export default function Home() {
+  const nextSection = () => {
+    const section = document.getElementById('services');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      <Header />
-      <HeroSection title="My garage Title" subtitle="Expertise, Transparence, Qualité" background='/assets/video/garage-video.mp4'/>
-      
-      <section className="container mx-auto py-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Card title="Service 1" description="Description du service 1" image="/img/service1.jpg"/>
-        <Card title="Service 2" description="Description du service 2" image="/img/service2.jpg"/>
-        <Card title="Service 3" description="Description du service 3" image="/img/service3.jpg"/>
-      </section>
+      <HeroSection title="My garage Title" subtitle="Expertise, Transparence, Qualité" background='/assets/video/garage-video.mp4' />
+      <div onClick={nextSection} className="absolute bottom-1 left-1/2 bg-white rounded-full animate-bounce p-2 cursor-pointer shadow-lg">
+        <ArrowDown className="w-8 h-8 text-blue-400" />
+      </div>
 
-      <Footer />
+      <div id='services'>
+        {/* For when theres a "Services" page (links) */}
+        <ServiceCardLinks />
+
+        {/* For when theres no "Services" page (all in home) */}
+        {/* <ServiceCardNoLinks /> */}
+      </div>
+
+      <AboutUs />
+
+      <Testimonials />
+
+      <CTAcontact />
     </>
   );
 }
