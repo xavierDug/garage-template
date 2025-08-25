@@ -2,6 +2,7 @@
 
 import { Code, Cog, PenTool, Shrub } from "lucide-react";
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import Image from "next/image";
 
 const ServiceCardNoLinks = () => {
   const features = [
@@ -50,9 +51,9 @@ const ServiceCardNoLinks = () => {
               </dl>
             </div>
           </div>
-          <img
-            alt="Product screenshot"
+          <Image
             src="/assets/img/CardShort3.jpg"
+            alt="Product screenshot"
             width={2432}
             height={1442}
             className="w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-white/10 sm:w-228 md:-ml-4 lg:-ml-0"

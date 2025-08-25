@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 type ServiceProps = {
   title: string;
@@ -65,10 +66,12 @@ const ServiceCardLinks = () => {
               className="group block overflow-hidden rounded-xl hover:opacity-[0.8] cursor-pointer transition-opacity duration-300"
             >
               <Card className="relative aspect-[3/4] overflow-hidden p-0 border-gray-900 bg-black">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
                   className="absolute inset-0 h-full w-full object-cover"
+                  width={500}
+                  height={500}
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent"></div>
                 <CardContent className="absolute inset-0 flex flex-col justify-start p-6">
@@ -89,10 +92,12 @@ const ServiceCardLinks = () => {
                 className="group block overflow-hidden rounded-xl hover:opacity-[0.8] cursor-pointer transition-opacity duration-300"
               >
                 <Card className="relative aspect-[4/3] overflow-hidden p-0 border-gray-900 bg-black">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
                     className="absolute inset-0 h-full w-full object-cover"
+                    width={500}
+                    height={500}
                   />
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent"></div>
                   <CardContent className="absolute inset-0 flex flex-col justify-start p-4">

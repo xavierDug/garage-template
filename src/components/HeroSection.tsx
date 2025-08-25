@@ -86,7 +86,7 @@ export default function HeroSection({ title, subtitle, background }: HeroSection
 
             {/* Content */}
             <div className="relative  px-4 container mx-auto">
-                <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold text-white mb-4 border-white border-8 p-4 w-fit uppercase rounded-lg">{title}</h1>
+                <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold text-white mb-4 w-fit uppercase rounded-lg">{title}</h1>
                 {subtitle && <p className="text-white text-xl">{subtitle}</p>}
                 <Button size={"lg"} variant="outline" className="me-2 mt-6 p-6 px-8 text-black cursor-pointer">
                     Contact us
