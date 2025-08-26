@@ -1,12 +1,17 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import { MdCarRepair } from "react-icons/md";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { FaOilCan, FaScrewdriverWrench } from "react-icons/fa6";
+import { PiTireFill } from "react-icons/pi";
+import { GiAutoRepair, GiCarWheel } from "react-icons/gi";
 
 type ServiceProps = {
+  icon?: React.ReactNode;
   title: string;
   image: string;
   url: string;
@@ -14,26 +19,31 @@ type ServiceProps = {
 
 const services: ServiceProps[] = [
   {
+    icon: <MdCarRepair />,
     title: "Car repair",
     image: "/assets/img/CardLong1.jpg",
     url: "",
   },
   {
+    icon: <GiAutoRepair />,
     title: "Auto Maintenance",
     image: "/assets/img/CardLong2.jpg",
     url: "",
   },
   {
+    icon: <FaOilCan />,
     title: "Oil Change",
     image: "/assets/img/CardShort1.jpg",
     url: "",
   },
   {
+    icon: <PiTireFill />,
     title: "Tire Services",
     image: "/assets/img/CardShort2.jpg",
     url: "",
   },
   {
+    icon: <GiCarWheel />,
     title: "Brake Repair",
     image: "/assets/img/CardShort3.jpg",
     url: "",
@@ -52,7 +62,7 @@ const ServiceCardLinks = () => {
             <p className="mt-6 text-lg/8 text-gray-300">
               Explore our range of expert services designed to keep your vehicle in top condition. From routine maintenance to specialized repairs, we have you covered.
             </p>
-            <Button variant="outline" size={"lg"} className="mt-8 w-fit">
+            <Button size={"lg"} className="mt-8 w-fit bg-blue-400 hover:bg-blue-500 transition-colors cursor-pointer">
               View all services <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -63,9 +73,9 @@ const ServiceCardLinks = () => {
           {services.slice(0, 2).map((service, idx) => (
             <div
               key={idx}
-              className="group block overflow-hidden rounded-xl hover:opacity-[0.8] cursor-pointer transition-opacity duration-300"
+              className="group block overflow-hidden rounded-xl cursor-pointer transition-opacity duration-300"
             >
-              <Card className="relative aspect-[3/4] overflow-hidden p-0 border-gray-900 bg-black">
+              <Card className="relative aspect-[3/4] overflow-hidden p-0 border-gray-900 bg-gray-900">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -73,13 +83,15 @@ const ServiceCardLinks = () => {
                   width={500}
                   height={500}
                 />
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent"></div>
+                {/* Default black gradient overlay */}
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent group-hover:bg-blue-400/40 transition-colors"></div>
                 <CardContent className="absolute inset-0 flex flex-col justify-start p-6">
-                  <div className="pr-4 font-semibold text-white">
+                  <div className="pr-4 text-xl font-semibold text-white flex items-center">
+                    <span className="me-2 text-2xl text-blue-400">{service.icon}</span>
                     {service.title}
                   </div>
                 </CardContent>
-                <ArrowUpRight className="absolute right-6 top-6 h-6 w-6 text-white transition-transform group-hover:scale-110" />
+                <ArrowUpRight className="absolute right-6 top-6 h-6 w-6 text-white transition-transform group-hover:scale-125" />
               </Card>
             </div>
           ))}
@@ -89,9 +101,9 @@ const ServiceCardLinks = () => {
             {services.slice(2).map((service, idx) => (
               <div
                 key={idx + 2}
-                className="group block overflow-hidden rounded-xl hover:opacity-[0.8] cursor-pointer transition-opacity duration-300"
+                className="group block overflow-hidden rounded-xl cursor-pointer transition-opacity duration-300"
               >
-                <Card className="relative aspect-[4/3] overflow-hidden p-0 border-gray-900 bg-black">
+                <Card className="relative aspect-[4/3] overflow-hidden p-0 border-gray-900 bg-gray-900">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -99,13 +111,15 @@ const ServiceCardLinks = () => {
                     width={500}
                     height={500}
                   />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent"></div>
+                  {/* Default black gradient overlay with hover effect */}
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent group-hover:bg-blue-400/40 transition-colors"></div>
                   <CardContent className="absolute inset-0 flex flex-col justify-start p-4">
-                    <div className="pr-4 text-sm font-semibold text-white">
+                    <div className="pr-4 font-semibold text-white flex items-center">
+                      <span className="me-2 text-xl text-blue-400">{service.icon}</span>
                       {service.title}
                     </div>
                   </CardContent>
-                  <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white transition-transform group-hover:scale-110" />
+                  <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white transition-transform group-hover:scale-125" />
                 </Card>
               </div>
             ))}

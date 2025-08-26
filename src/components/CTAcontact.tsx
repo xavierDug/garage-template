@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function CTAcontact() {
     return (
         <div className="bg-white">
-            <div className="mx-auto container py-24 sm:px-6 sm:py-32 lg:px-6">
-                <div className="relative isolate overflow-hidden bg-black px-6 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 sm:rounded-3xl sm:px-16 after:sm:rounded-3xl md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+            <div className="mx-auto container sm:px-6 sm:py-32 lg:px-6">
+                <div className="relative isolate overflow-hidden bg-blue-500 px-6 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 sm:rounded-3xl sm:px-16 after:sm:rounded-3xl md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
                     <svg
                         viewBox="0 0 1024 1024"
                         aria-hidden="true"
@@ -13,8 +13,8 @@ export default function CTAcontact() {
                         <circle r={512} cx={512} cy={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
                         <defs>
                             <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                                <stop stopColor="#01d6ff" />
-                                <stop offset={1} stopColor="#01d6ff" />
+                                <stop stopColor="#ffffff" />
+                                <stop offset={1} stopColor="#ffffff" />
                             </radialGradient>
                         </defs>
                     </svg>

@@ -28,30 +28,12 @@ interface Footer7Props {
 
 const defaultSections = [
     {
-        title: "Product",
+        title: "Links",
         links: [
-            { name: "Overview", href: "#" },
-            { name: "Pricing", href: "#" },
-            { name: "Marketplace", href: "#" },
-            { name: "Features", href: "#" },
-        ],
-    },
-    {
-        title: "Company",
-        links: [
+            { name: "Home", href: "#" },
             { name: "About", href: "#" },
-            { name: "Team", href: "#" },
-            { name: "Blog", href: "#" },
-            { name: "Careers", href: "#" },
-        ],
-    },
-    {
-        title: "Resources",
-        links: [
-            { name: "Help", href: "#" },
-            { name: "Sales", href: "#" },
-            { name: "Advertise", href: "#" },
-            { name: "Privacy", href: "#" },
+            { name: "Services", href: "#" },
+            { name: "Contact us", href: "#" },
         ],
     },
 ];
@@ -103,7 +85,7 @@ const Footer7 = ({
                         </p>
                         <ul className="text-muted-foreground flex items-center space-x-6">
                             {socialLinks.map((social, idx) => (
-                                <li key={idx} className="hover:text-primary font-medium">
+                                <li key={idx} className="hover:text-blue-400 font-medium">
                                     <a href={social.href} aria-label={social.label}>
                                         {social.icon}
                                     </a>
@@ -111,7 +93,7 @@ const Footer7 = ({
                             ))}
                         </ul>
                     </div>
-                    <div className="grid w-full gap-6 md:grid-cols-3 lg:gap-20">
+                    <div className="grid w-full gap-6 lg:gap-20 text-start sm:text-right">
                         {sections.map((section, sectionIdx) => (
                             <div key={sectionIdx}>
                                 <h3 className="mb-4 font-bold text-white">{section.title}</h3>
@@ -119,7 +101,7 @@ const Footer7 = ({
                                     {section.links.map((link, linkIdx) => (
                                         <li
                                             key={linkIdx}
-                                            className="hover:text-white font-medium"
+                                            className="hover:text-blue-400 font-medium"
                                         >
                                             <a href={link.href}>{link.name}</a>
                                         </li>
@@ -133,7 +115,7 @@ const Footer7 = ({
                     <p className="order-2 lg:order-1">{copyright}</p>
                     <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
                         {legalLinks.map((link, idx) => (
-                            <li key={idx} className="hover:text-white">
+                            <li key={idx} className="hover:text-blue-400">
                                 <a href={link.href}> {link.name}</a>
                             </li>
                         ))}

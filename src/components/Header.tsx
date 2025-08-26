@@ -31,9 +31,13 @@ export default function Header() {
                         <a className="font-medium text-white hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">About</a>
                         <a className="font-medium text-white hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">Services</a>
                         <a className="font-medium text-white hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">
-                            <Button variant="outline" className="ms-2 text-black cursor-pointer">
+                            <Button
+                                size={"lg"}
+                                variant="outline"
+                                className="group me-2 text-black cursor-pointer transition-all hover:bg-gray-200"
+                            >
                                 Contact us
-                                <div className="inline-flex bg-blue-400 p-1 rounded-full">
+                                <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110">
                                     <ArrowRight className="w-4 h-4 text-white" />
                                 </div>
                             </Button>

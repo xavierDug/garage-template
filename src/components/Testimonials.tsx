@@ -15,7 +15,7 @@ const Testimonials = () => {
                             height={500}
                             className="h-72 w-full rounded-md object-cover lg:h-auto"
                         />
-                        <Card className="col-span-2 flex items-center justify-center p-6 bg-accent-foreground border-muted-foreground/20">
+                        <Card className="col-span-2 flex items-center justify-center p-6 bg-blue-500 border-muted-foreground/20">
                             <div className="flex flex-col gap-4">
                                 <q className="text-xl font-medium lg:text-3xl text-white">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque

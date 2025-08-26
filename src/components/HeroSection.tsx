@@ -6,12 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 
 interface HeroSectionProps {
-    title: string;
     subtitle?: string;
     background?: string;
 }
 
-export default function HeroSection({ title, subtitle, background }: HeroSectionProps) {
+export default function HeroSection({ subtitle, background }: HeroSectionProps) {
     const [progress, setProgress] = useState(0);
     const [isInView, setIsInView] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -86,11 +85,15 @@ export default function HeroSection({ title, subtitle, background }: HeroSection
 
             {/* Content */}
             <div className="relative  px-4 container mx-auto">
-                <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold text-white mb-4 w-fit uppercase rounded-lg">{title}</h1>
+                <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold text-white mb-4 w-fit uppercase rounded-lg">my garage <span className="text-blue-400 italic">title</span>.</h1>
                 {subtitle && <p className="text-white text-xl">{subtitle}</p>}
-                <Button size={"lg"} variant="outline" className="me-2 mt-6 p-6 px-8 text-black cursor-pointer">
+                <Button
+                    size={"lg"}
+                    variant="outline"
+                    className="group me-2 mt-6 p-6 px-8 text-black cursor-pointer transition-all hover:bg-gray-200"
+                >
                     Contact us
-                    <div className="inline-flex bg-blue-400 p-1 rounded-full">
+                    <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110">
                         <ArrowRight className="w-4 h-4 text-white" />
                     </div>
                 </Button>

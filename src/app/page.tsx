@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <HeroSection title="My garage Title" subtitle="Expertise, Transparence, Qualité" background='/assets/video/garage-video.mp4' />
+      <HeroSection subtitle="Expertise, Transparence, Qualité" background='/assets/video/garage-video.mp4' />
       <div onClick={nextSection} className="absolute bottom-1 left-1/2 bg-white rounded-full animate-bounce p-2 cursor-pointer shadow-lg">
         <ArrowDown className="w-8 h-8 text-blue-400" />
       </div>
