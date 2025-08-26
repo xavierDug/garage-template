@@ -53,7 +53,7 @@ const defaultLegalLinks = [
 const Footer7 = ({
     logo = {
         url: "https://www.shadcnblocks.com",
-        src: "/assets/img/Repair-services.png",
+        src: "/assets/img/repair-services.png",
         alt: "logo",
         title: "",
     },
