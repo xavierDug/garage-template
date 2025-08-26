@@ -10,11 +10,12 @@ export default function Header() {
                 <div className="flex items-center justify-between">
                     <a className="flex-none text-xl font-semibold dark:text-white focus:outline-hidden focus:opacity-80 ms-2" href="#" aria-label="Brand">
                         <Image
-                            src="/assets/img/Repair-services.png"
+                            src="/assets/img/repair-services.png"
                             alt="Logo"
                             width={180}
                             height={40}
                             priority
+                            unoptimized
                         />
                     </a>
                     <div className="sm:hidden">

@@ -76,6 +76,7 @@ const Footer7 = ({
                                     alt={logo.alt}
                                     width={200}
                                     height={500}
+                                    unoptimized
                                 />
                             </a>
                             <h2 className="text-xl font-semibold text-white">{logo.title}</h2>
