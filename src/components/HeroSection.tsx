@@ -1,110 +1,125 @@
 "use client";
 
-import { ArrowDown, ArrowRight, HandHelping } from "lucide-react";
-import { Progress } from "./ui/progress";
-import { useEffect, useRef, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useRef, useState } from "react";
+import { siteConfig } from "../../site.config";
 
 interface HeroSectionProps {
-    subtitle?: string;
-    background?: string;
+  variant?: "image" | "video"; // optional, defaults to config
 }
 
-export default function HeroSection({ subtitle, background }: HeroSectionProps) {
-    const [progress, setProgress] = useState(0);
-    const [isInView, setIsInView] = useState(false);
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const videoRef = useRef<HTMLVideoElement>(null);
+export default function HeroSection({ variant }: HeroSectionProps) {
+  const hero = siteConfig.hero;
+  const [progress, setProgress] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-    // Detect if the section is in view
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setIsInView(entry.isIntersecting);
-            },
-            { threshold: 0.5 } // 50% of the section must be visible
-        );
+  const finalVariant = variant || hero.variant;
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
+  // Only relevant for video variant
+  useEffect(() => {
+    if (finalVariant !== "video") return;
 
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
-
-    // Update progress only when the section is in view
-    useEffect(() => {
-        let interval: NodeJS.Timeout | null = null;
-
-        if (isInView) {
-            interval = setInterval(() => {
-                setProgress((prev) => (prev >= 100 ? 0 : prev + 1));
-            }, 100); // Increment progress every 100ms
-        } else if (interval) {
-            clearInterval(interval);
-        }
-
-        return () => {
-            if (interval) {
-                clearInterval(interval);
-            }
-        };
-    }, [isInView]);
-
-    // Control video playback based on visibility
-    useEffect(() => {
-        if (videoRef.current) {
-            if (isInView) {
-                videoRef.current.play();
-            } else {
-                videoRef.current.pause();
-            }
-        }
-    }, [isInView]);
-
-    return (
-        <section className="h-screen relative flex items-center overflow-hidden" ref={sectionRef}>
-            {/* Video background */}
-            {background && (
-                <video
-                    ref={videoRef}
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                    src={background}
-                    loop
-                    muted
-                    playsInline
-                />
-            )}
-
-            {/* Overlay (optional, darken the video for readability) */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black/80"></div>
-
-            {/* Content */}
-            <div className="relative  px-4 container mx-auto">
-                <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold text-white mb-4 w-fit uppercase rounded-lg">my garage <span className="text-blue-400 italic">title</span>.</h1>
-                {subtitle && <p className="text-white text-xl">{subtitle}</p>}
-                <Button
-                    size={"lg"}
-                    variant="outline"
-                    className="group me-2 mt-6 p-6 px-8 text-black cursor-pointer transition-all hover:bg-gray-200"
-                >
-                    Contact us
-                    <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110">
-                        <ArrowRight className="w-4 h-4 text-white" />
-                    </div>
-                </Button>
-                <Button size={"lg"} className="me-2 mt-6 p-6 px-8 text-white bg-blue-400 hover:bg-blue-500 cursor-pointer">
-                    Our Services
-                </Button>
-            </div>
-
-            <div className="absolute bottom-0 left-0 w-full">
-                <Progress value={progress} className="w-full h-0.5 rounded-none" />
-            </div>
-        </section>
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.5 }
     );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, [finalVariant]);
+
+  // Video controls
+  useEffect(() => {
+    if (finalVariant !== "video" || !videoRef.current) return;
+    if (isInView) videoRef.current.play();
+    else videoRef.current.pause();
+  }, [isInView, finalVariant]);
+
+  // Progress bar logic for video
+  useEffect(() => {
+    if (finalVariant !== "video") return;
+
+    let interval: NodeJS.Timeout | null = null;
+    if (isInView) {
+      interval = setInterval(() => setProgress((prev) => (prev >= 100 ? 0 : prev + 1)), 100);
+    } else if (interval) clearInterval(interval);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isInView, finalVariant]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative h-screen text-white flex items-center overflow-hidden"
+      style={
+        finalVariant === "image"
+          ? {
+              backgroundImage: `url(${hero.background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          : undefined
+      }
+    >
+      {/* Video background */}
+      {finalVariant === "video" && (
+        <video
+          ref={videoRef}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src={hero.background}
+          loop
+          muted
+          playsInline
+        />
+      )}
+
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+
+      {/* Content */}
+      <div className="relative container mx-auto px-4">
+        <h1 className="text-5xl md:text-7xl 2xl:text-8xl font-bold uppercase mb-4">
+          {hero.title} <span className="text-blue-400 italic">{hero.highlight}</span>.
+        </h1>
+        {hero.subtitle && <p className="text-xl mb-6">{hero.subtitle}</p>}
+
+        <div className="flex flex-wrap gap-4">
+          <Button
+            size="lg"
+            variant="outline"
+            className="group p-6 px-8 text-black cursor-pointer transition-all hover:bg-gray-200"
+          >
+            Contact us
+            <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110 ml-2">
+              <ArrowRight className="w-4 h-4 text-white" />
+            </div>
+          </Button>
+          <Button
+            size="lg"
+            className="p-6 px-8 text-white bg-blue-400 hover:bg-blue-500 cursor-pointer"
+          >
+            Our Services
+          </Button>
+        </div>
+      </div>
+
+      {/* Progress bar for video */}
+      {finalVariant === "video" && (
+        <div className="absolute bottom-0 left-0 w-full">
+          <div
+            className="h-0.5 bg-blue-400 transition-all duration-100"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      )}
+    </section>
+  );
 }
