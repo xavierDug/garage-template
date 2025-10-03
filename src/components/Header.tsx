@@ -33,37 +33,41 @@ export default function Header() {
                 <div id="hs-navbar-example" className="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block px-4" aria-labelledby="hs-navbar-example-collapse">
                     <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5 pb-6 sm:pb-0">
 
-                        <Link
-                            className={`font-semibold focus:outline-hidden ${pathname === '/' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
-                            href="/"
-                            aria-current={pathname === '/' ? 'page' : undefined}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            className={`font-medium ${pathname === '/about' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
-                            href="/about"
-                        >
-                            About
-                        </Link>
-                        <Link
-                            className={`font-medium ${pathname === '/services' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
-                            href="/services"
-                        >
-                            Services
-                        </Link>
-                        <Link className="font-medium text-white hover:text-neutral-500 focus:text-neutral-500" href="/contact">
-                            <Button
-                                size={"lg"}
-                                variant="outline"
-                                className="group me-2 text-black cursor-pointer transition-all hover:bg-gray-200"
+                        <div className="flex text-lg flex-col sm:flex-row sm:items-center sm:justify-center flex-1 gap-8">
+                            <Link
+                                className={`font-semibold focus:outline-hidden ${pathname === '/' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
+                                href="/"
+                                aria-current={pathname === '/' ? 'page' : undefined}
                             >
-                                Contact us
-                                <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110">
-                                    <ArrowRight className="w-4 h-4 text-white" />
-                                </div>
-                            </Button>
-                        </Link>
+                                Home
+                            </Link>
+                            <Link
+                                className={`font-medium ${pathname === '/about' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
+                                href="/about"
+                            >
+                                About
+                            </Link>
+                            <Link
+                                className={`font-medium ${pathname === '/services' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
+                                href="/services"
+                            >
+                                Services
+                            </Link>
+                        </div>
+                        <div className="flex justify-end">
+                            <Link className="font-medium text-white hover:text-neutral-500 focus:text-neutral-500" href="/contact">
+                                <Button
+                                    size={"lg"}
+                                    variant="outline"
+                                    className="group me-2 text-black cursor-pointer transition-all hover:bg-gray-200"
+                                >
+                                    Contact us
+                                    <div className="inline-flex bg-blue-400 p-1 rounded-full transition-transform group-hover:scale-110">
+                                        <ArrowRight className="w-4 h-4 text-white" />
+                                    </div>
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </nav>
