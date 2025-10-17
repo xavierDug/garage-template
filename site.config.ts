@@ -78,7 +78,7 @@ export const siteConfig = {
   },
 
   services: {
-    variant: "links" as ServicesVariant,
+    variant: "noLinks" as ServicesVariant,
     links: {
       title: "Featured Services",
       description:
@@ -127,15 +127,15 @@ export const siteConfig = {
       ],
     },
     noLinks: {
-      title: "Deploy faster",
-      subtitle: "A better workflow",
+      title: "Our Services",
+      subtitle: "Comprehensive Auto Care for Every Need",
       description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+        "At Garage Tremblay, we offer a wide range of services to keep your vehicle running smoothly. Our experienced technicians are equipped to handle everything from routine maintenance to complex repairs, ensuring your car receives the best care possible.",
       image: "/assets/img/CardShort3.jpg",
       features: [
-        { name: "Push to deploy.", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.", icon: CloudArrowUpIcon },
-        { name: "SSL certificates.", description: "Anim aute id magna aliqua ad ad non deserunt sunt.", icon: LockClosedIcon },
-        { name: "Database backups.", description: "Ac tincidunt sapien vehicula erat auctor pellentesque.", icon: ServerIcon },
+        { name: "Car Repair.", description: "Reliable diagnostics and repairs to keep your car performing at its best.", icon: MdCarRepair },
+        { name: "Auto Maintenance.", description: "Preventive care and regular maintenance to avoid costly breakdowns.", icon: GiAutoRepair },
+        { name: "Oil Change.", description: "Fast and professional oil changes to extend the life of your engine.", icon: FaOilCan },
       ],
     },
   },
@@ -151,10 +151,10 @@ export const siteConfig = {
       enabled: true,
       src: "/assets/img/repair-services-black.png",
       alt: "garage logo",
-      title: "Your garage, your online image",
-      description: "We create a modern website that inspires trust and attracts new customers.",
+      title: "Need a reliable auto repair service?",
+      description: "Get in touch with us today for expert care and transparent pricing.",
       buttonText: "Get a free quote",
-      buttonUrl: "/contact",
+      buttonUrl: "#contact",
     },
 
     companies: {
@@ -164,6 +164,9 @@ export const siteConfig = {
         { src: "/assets/img/BrandLogo1.png", alt: "Arc" },
         { src: "/assets/img/BrandLogo2.png", alt: "Descript" },
         { src: "/assets/img/BrandLogo3.png", alt: "Mercury" },
+        { src: "/assets/img/BrandLogo4.png", alt: "Mirage" },
+        { src: "/assets/img/BrandLogo5.png", alt: "Rewind" },
+        { src: "/assets/img/BrandLogo6.png", alt: "StaticKit" },
       ],
     },
 
@@ -239,15 +242,15 @@ export const siteConfig = {
   },
 
   cta: {
+    variant: "mailto", // "mailto" | "contact"
     title: "Ready to book an appointment?",
     description:
       "Whether you have questions about our services, need a quote, or want to schedule an appointment, our team is here to help.",
     buttonPrimary: {
-      text: "Get started",
-      url: "/contact",
+      text: "Contact Us",
     },
     buttonSecondary: {
-      enabled: true,
+      enabled: false,
       text: "Learn more",
       url: "/about",
     },
@@ -255,7 +258,24 @@ export const siteConfig = {
       src: "/assets/img/CTAimage.jpg",
       alt: "Garage CTA image",
     },
-    backgroundColor: "bg-blue-500", // can be swapped per client
+    backgroundColor: "bg-blue-500",
+  },
+
+
+  gallery: {
+    enabled: true,
+    title: "Our Workshop in Action",
+    subtitle: "A glimpse of our daily work and craftsmanship",
+    images: [
+      { src: "/assets/img/CardLong1.jpg", alt: "Mechanic working on an engine" },
+      { src: "/assets/img/CardShort3.jpg", alt: "Car being lifted in the shop" },
+      { src: "/assets/img/AboutImage1.jpg", alt: "Team repairing a vehicle" },
+      { src: "/assets/img/TestimonialsImage.jpg", alt: "Oil change service" },
+      { src: "/assets/img/hero-bg.png", alt: "Garage exterior" },
+      { src: "/assets/img/AboutImage2.jpg", alt: "Wheel alignment in progress" },
+      { src: "/assets/img/gallery1.jpg", alt: "Customer car ready for pickup" },
+      { src: "/assets/img/CardShort2.jpg", alt: "Close-up of engine parts" },
+    ],
   },
 
   footer: {
@@ -266,6 +286,11 @@ export const siteConfig = {
     },
     description:
       "Your trusted partner for all auto services. Expertise, transparency, and quality in every job we do.",
+    map: {
+      enabled: true,
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.685547607016!2d-73.56605968444334!3d45.501688279101906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a5f6fd8b0cf%3A0x1a85c2cf7bbff4b!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1694473000000!5m2!1sen!2sca",
+      height: 400, // you can adjust this (in px)
+    },
     sections: [
       {
         title: "Links",

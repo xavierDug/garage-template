@@ -34,7 +34,7 @@ export default function ServicesSection({ variant }: ServicesSectionProps) {
                                     {sectionConfig.noLinks.features.map((feature) => (
                                         <div key={feature.name} className="relative pl-9">
                                             <dt className="inline font-semibold text-white">
-                                                <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-blue-400" />
+                                                <feature.icon aria-hidden="true" className="absolute top-1 -left-1 size-7 text-blue-400" />
                                                 {feature.name}
                                             </dt>{" "}
                                             <dd className="inline">{feature.description}</dd>

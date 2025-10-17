@@ -42,20 +42,20 @@ export default function Header() {
                                 Home
                             </Link>
                             <Link
-                                className={`font-medium ${pathname === '/about' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
-                                href="/about"
-                            >
-                                About
-                            </Link>
-                            <Link
                                 className={`font-medium ${pathname === '/services' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
-                                href="/services"
+                                href="#services"
                             >
                                 Services
                             </Link>
+                            <Link
+                                className={`font-medium ${pathname === '/about' ? 'text-blue-400' : 'text-white hover:text-neutral-500 focus:text-neutral-500'}`}
+                                href="#about"
+                            >
+                                About
+                            </Link>
                         </div>
                         <div className="flex justify-end">
-                            <Link className="font-medium text-white hover:text-neutral-500 focus:text-neutral-500" href="/contact">
+                            <Link className="font-medium text-white hover:text-neutral-500 focus:text-neutral-500" href="#contact">
                                 <Button
                                     size={"lg"}
                                     variant="outline"

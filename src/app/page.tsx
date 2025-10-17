@@ -6,6 +6,7 @@ import { Testimonials } from '@/components/Testimonials';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import AboutUs from '@/components/AboutUs';
+import GallerySection from '@/components/Gallery';
 
 export default function Home() {
   const nextSection = () => {
@@ -30,11 +31,21 @@ export default function Home() {
         <ServicesSection/>
       </div>
 
-      <AboutUs />
+      <div id='about'>
+        {/* About us section */}
+        <AboutUs />
+      </div>
 
+      {/* Testimonials or why us section */}
       <Testimonials />
 
-      <CTAcontact />
+      <div id='gallery'>
+        <GallerySection />
+      </div>
+
+      <div id='contact'>
+        <CTAcontact />
+      </div>
     </>
   );
 }

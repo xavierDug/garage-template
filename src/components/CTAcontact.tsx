@@ -1,8 +1,17 @@
 import Image from "next/image";
 import { siteConfig } from "../../site.config";
+import Link from "next/link";
+import { MdEmail } from "react-icons/md";
 
 export default function CTAcontact() {
-    const { title, description, buttonPrimary, buttonSecondary, image, backgroundColor } = siteConfig.cta;
+    const { variant, title, description, buttonPrimary, buttonSecondary, image, backgroundColor } =
+        siteConfig.cta;
+
+    // Determine CTA primary button URL based on variant
+    const primaryUrl =
+        variant === "mailto"
+            ? "mailto:info@yourgarage.com?subject=Service%20Inquiry"
+            : "/contact";
 
     return (
         <div className="bg-white">
@@ -10,19 +19,13 @@ export default function CTAcontact() {
                 <div
                     className={`relative isolate overflow-hidden ${backgroundColor} px-6 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 sm:rounded-3xl sm:px-16 after:sm:rounded-3xl md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0`}
                 >
-                    {/* radial gradient mask */}
+                    {/* subtle radial gradient */}
                     <svg
                         viewBox="0 0 1024 1024"
                         aria-hidden="true"
                         className="absolute top-1/2 left-1/2 -z-10 size-256 -translate-y-1/2 mask-[radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
                     >
-                        <circle
-                            r={512}
-                            cx={512}
-                            cy={512}
-                            fill="url(#cta-gradient)"
-                            fillOpacity="0.7"
-                        />
+                        <circle r={512} cx={512} cy={512} fill="url(#cta-gradient)" fillOpacity="0.7" />
                         <defs>
                             <radialGradient id="cta-gradient">
                                 <stop stopColor="#ffffff" />
@@ -37,24 +40,25 @@ export default function CTAcontact() {
                             {title}
                         </h2>
                         {description && (
-                            <p className="mt-6 text-lg/8 text-pretty text-gray-300">{description}</p>
+                            <p className="mt-6 text-lg/8 text-pretty text-gray-100">{description}</p>
                         )}
                         <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                             {buttonPrimary && (
-                                <a
-                                    href={buttonPrimary.url}
-                                    className="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                                <Link
+                                    href={primaryUrl}
+                                    className="rounded-xl bg-white px-10 py-3 text-sm font-semibold text-blue-600 shadow-md hover:bg-gray-100 transition-all"
                                 >
+                                    <MdEmail className="inline size-5 mr-2" />
                                     {buttonPrimary.text}
-                                </a>
+                                </Link>
                             )}
                             {buttonSecondary && buttonSecondary.enabled && (
-                                <a
+                                <Link
                                     href={buttonSecondary.url}
-                                    className="text-sm/6 font-semibold text-white hover:text-gray-100"
+                                    className="text-sm font-semibold text-white hover:text-gray-100"
                                 >
                                     {buttonSecondary.text} →
-                                </a>
+                                </Link>
                             )}
                         </div>
                     </div>
