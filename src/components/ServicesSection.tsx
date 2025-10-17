@@ -85,8 +85,9 @@ export default function ServicesSection({ variant }: ServicesSectionProps) {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2">
                     {/* Featured Services (first 2) */}
                     {sectionConfig.links.services.slice(0, 2).map((service, idx) => (
-                        <div
+                        <Link
                             key={idx}
+                            href={`/services#${service.id}`}
                             className="group block overflow-hidden rounded-xl cursor-pointer relative transition-all duration-500 hover:scale-[1.02]"
                         >
                             <Card className="relative aspect-[3/4] overflow-hidden p-0 border border-gray-800 bg-gray-950 shadow-lg">
@@ -109,17 +110,17 @@ export default function ServicesSection({ variant }: ServicesSectionProps) {
                                 </CardContent>
 
                                 <ArrowUpRight className="absolute right-6 top-6 h-6 w-6 text-white transition-transform group-hover:scale-125" />
-
                                 <div className="absolute inset-0 ring-0 ring-blue-400/40 opacity-0 group-hover:opacity-100 group-hover:ring-4 transition-all duration-500"></div>
                             </Card>
-                        </div>
+                        </Link>
                     ))}
 
                     {/* Secondary Services (remaining) */}
                     <div className="col-span-full grid grid-cols-1 gap-4 sm:grid-cols-3">
                         {sectionConfig.links.services.slice(2).map((service, idx) => (
-                            <div
+                            <Link
                                 key={idx + 2}
+                                href={`/services#${service.id}`}
                                 className="group block overflow-hidden rounded-xl cursor-pointer relative transition-all duration-500 hover:scale-[1.02]"
                             >
                                 <Card className="relative aspect-[4/3] overflow-hidden p-0 border border-gray-800 bg-gray-950 shadow-md">
@@ -142,10 +143,9 @@ export default function ServicesSection({ variant }: ServicesSectionProps) {
                                     </CardContent>
 
                                     <ArrowUpRight className="absolute right-4 top-4 h-5 w-5 text-white transition-transform group-hover:scale-125" />
-
                                     <div className="absolute inset-0 ring-0 ring-blue-400/30 opacity-0 group-hover:opacity-100 group-hover:ring-2 transition-all duration-500"></div>
                                 </Card>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

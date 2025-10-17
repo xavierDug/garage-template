@@ -3,7 +3,7 @@ import { FaOilCan } from "react-icons/fa6";
 import { PiTireFill } from "react-icons/pi";
 import { GiAutoRepair, GiCarWheel } from "react-icons/gi";
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from "@heroicons/react/20/solid";
-import { Wrench, ShieldCheck, Clock, ThumbsUp } from "lucide-react";
+import { Wrench, ShieldCheck, Clock, ThumbsUp, BadgeCheck, Users } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 // config/types.ts
@@ -77,52 +77,103 @@ export const siteConfig = {
     background: "/assets/img/hero-bg.png",
   },
 
+  // Services Section and services/page.tsx
   services: {
-    variant: "noLinks" as ServicesVariant,
+    variant: "links" as ServicesVariant,
     links: {
-      title: "Featured Services",
+      title: "Our Services",
       description:
         "Explore our range of expert services designed to keep your vehicle in top condition. From routine maintenance to specialized repairs, we have you covered.",
       services: [
         {
+          id: "car-repair", // used for anchor links (#car-repair)
           icon: MdCarRepair,
           title: "Car Repair",
           tag: "Engine & Body",
-          description: "Reliable diagnostics and repairs to keep your car performing at its best.",
+          description:
+            "Reliable diagnostics and repairs to keep your car performing at its best. From engine issues to electrical problems, our mechanics handle it all.",
           image: "/assets/img/CardLong1.jpg",
-          url: "/services/car-repair",
+          features: [
+            "Computerized diagnostics",
+            "Engine and transmission repairs",
+            "Electrical system troubleshooting",
+          ],
+          cta: {
+            label: "Book Car Repair",
+            href: "mailto:garagetremblay@gmail.com?subject=Car%20Repair%20Booking",
+          },
         },
         {
+          id: "maintenance",
           icon: GiAutoRepair,
           title: "Auto Maintenance",
           tag: "Routine Checkups",
-          description: "Preventive care and regular maintenance to avoid costly breakdowns.",
+          description:
+            "Preventive care and regular maintenance to avoid costly breakdowns and extend your car’s lifespan.",
           image: "/assets/img/CardLong2.jpg",
-          url: "/services/maintenance",
+          features: [
+            "Multi-point inspection",
+            "Fluid top-ups and filter changes",
+            "Battery and belt checks",
+          ],
+          cta: {
+            label: "Schedule Maintenance",
+            href: "mailto:garagetremblay@gmail.com?subject=Maintenance%20Appointment",
+          },
         },
         {
+          id: "oil-change",
           icon: FaOilCan,
           title: "Oil Change",
           tag: "Quick Service",
-          description: "Fast and professional oil changes to extend the life of your engine.",
+          description:
+            "Fast, affordable, and professional oil changes to extend your engine’s life and improve performance.",
           image: "/assets/img/CardShort1.jpg",
-          url: "/services/oil-change",
+          features: [
+            "Premium oil brands",
+            "Filter replacement included",
+            "15-minute service available",
+          ],
+          cta: {
+            label: "Book Oil Change",
+            href: "mailto:garagetremblay@gmail.com?subject=Oil%20Change%20Booking",
+          },
         },
         {
+          id: "tires",
           icon: PiTireFill,
           title: "Tire Services",
           tag: "Wheels & Tires",
-          description: "Rotation, balancing, and replacements to keep your drive smooth and safe.",
+          description:
+            "Rotation, balancing, and tire replacement to keep your drive safe and smooth.",
           image: "/assets/img/CardShort2.jpg",
-          url: "/services/tires",
+          features: [
+            "Tire rotation & balancing",
+            "Seasonal tire swap",
+            "New tire sales & installations",
+          ],
+          cta: {
+            label: "Book Tire Service",
+            href: "mailto:garagetremblay@gmail.com?subject=Tire%20Service%20Inquiry",
+          },
         },
         {
+          id: "brakes",
           icon: GiCarWheel,
           title: "Brake Repair",
           tag: "Safety First",
-          description: "Expert brake repairs and inspections to ensure you stop safely every time.",
+          description:
+            "Expert brake repairs and inspections to ensure safe and confident stops every time.",
           image: "/assets/img/CardShort3.jpg",
-          url: "/services/brakes",
+          features: [
+            "Brake pad replacement",
+            "Rotor resurfacing",
+            "ABS diagnostics",
+          ],
+          cta: {
+            label: "Book Brake Inspection",
+            href: "mailto:garagetremblay@gmail.com?subject=Brake%20Repair%20Appointment",
+          },
         },
       ],
     },
@@ -314,4 +365,48 @@ export const siteConfig = {
       { name: "Privacy Policy", href: "/privacy" },
     ],
   },
+
+  aboutPage: {
+    hero: {
+      title: "About Garage Tremblay",
+      subtitle:
+        "Family-owned garage proudly serving Montréal drivers with honest, high-quality auto repairs for over 20 years.",
+      background: "/assets/img/CTAimage.jpg",
+      overlayOpacity: 0.25,
+    },
+    story: {
+      enabled: true,
+      title: "Our Story",
+      text1:
+        "What started as a small two-bay garage in 2008 has grown into one of Montréal’s most trusted auto repair shops.",
+      text2:
+        "Our mission is simple: treat every customer like family and every car like our own. Whether it’s an oil change or a major repair, we’re committed to transparency, reliability, and getting you back on the road safely.",
+      image: "/assets/img/hero-bg.png",
+    },
+    values: {
+      enabled: true,
+      image: "/assets/img/AboutImage1.jpg",
+      title: "Our Values",
+      description:
+        "Every repair, every handshake, every customer — our values drive everything we do.",
+      list: [
+        { title: "Honesty", text: "Fair quotes, no surprises, and full transparency.", icon: BadgeCheck },
+        { title: "Quality", text: "Certified mechanics, top-grade parts, lasting repairs.", icon: Wrench },
+        { title: "Community", text: "Proudly serving local Montréal drivers.", icon: Users },
+        { title: "Trust", text: "Our reputation is built on word-of-mouth and reliability.", icon: ShieldCheck },
+      ],
+    },
+    team: {
+      enabled: true,
+      title: "Meet the Team",
+      description: "Our dedicated team of professionals is here to provide top-notch service and ensure your vehicle is in the best hands.",
+      members: [
+        { name: "Marc Dubois", role: "Lead Mechanic", image: "/assets/img/headshot1.jpg" },
+        { name: "Sophie Tremblay", role: "Service Advisor", image: "/assets/img/headshot2.jpg" },
+        { name: "Ali Rahman", role: "Technician", image: "/assets/img/headshot3.jpg" },
+      ],
+    },
+  },
+
+
 };
