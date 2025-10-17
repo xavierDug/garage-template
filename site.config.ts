@@ -79,7 +79,7 @@ export const siteConfig = {
 
   // Services Section and services/page.tsx
   services: {
-    variant: "links" as ServicesVariant,
+    variant: "noLinks" as ServicesVariant,
     links: {
       title: "Our Services",
       description:
