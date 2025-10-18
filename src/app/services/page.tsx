@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { siteConfig } from "../../../site.config";
 import { motion } from "framer-motion";
+import CTAcontact from "@/components/CTAcontact";
 
 export default function Services() {
     const { services } = siteConfig;
@@ -82,6 +83,8 @@ export default function Services() {
                     </motion.section>
                 ))}
             </div>
+
+            <CTAcontact />
         </main>
     );
 }
